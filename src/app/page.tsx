@@ -55,8 +55,6 @@ export default function Home() {
                   </Link>
                   <div className="text-xs leading-snug text-tibc-chalk-dim">
                     Rental shoes included.
-                    <br />
-                    Pull up, climb, meet people.
                   </div>
                 </MotionDiv>
               </div>
@@ -84,6 +82,50 @@ export default function Home() {
               </MotionDiv>
             </div>
           </div>
+        </section>
+
+        <section
+          aria-labelledby="pricing-heading"
+          className="relative mx-auto w-full max-w-6xl px-5 sm:px-8"
+        >
+          <MotionDiv
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-8% 0px" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="border-t border-white/10 py-10 sm:py-12"
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-tibc-orange/25 bg-black/40 px-6 py-8 sm:px-10 sm:py-10">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full border border-white/5 bg-tibc-orange/5" />
+              <div className="relative flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+                <div className="max-w-md">
+                  <p
+                    id="pricing-heading"
+                    className="text-xs tracking-[0.2em] text-tibc-chalk-dim"
+                  >
+                    BOULDER JAM PASS
+                  </p>
+                  <p className="mt-3 font-display text-3xl leading-tight text-tibc-chalk sm:text-4xl">
+                    Three days on the wall.
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-tibc-chalk-dim sm:text-base">
+                    One pass. Rental shoes included.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2 sm:justify-end">
+                  <span
+                    className="font-mono text-2xl text-tibc-chalk-dim line-through decoration-tibc-orange/55 decoration-2 sm:text-3xl"
+                    aria-label="Previously Rs 6,600"
+                  >
+                    Rs&nbsp;6,600
+                  </span>
+                  <span className="font-display text-5xl leading-none text-tibc-orange sm:text-7xl">
+                    Rs&nbsp;2,500
+                  </span>
+                </div>
+              </div>
+            </div>
+          </MotionDiv>
         </section>
 
         <section id="details" className="relative mx-auto w-full max-w-6xl px-5 pb-20 sm:px-8">
