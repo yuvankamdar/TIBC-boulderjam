@@ -139,7 +139,7 @@ export default function RegisterPage() {
       if (!res.ok) {
         throw new Error(await readApiErrorMessage(res));
       }
-      router.push("/success");
+      router.push(`/payment?name=${encodeURIComponent(payload.fullName)}`);
     } catch (err: any) {
       setError(err?.message || "Something went wrong.");
       setBusy(false);
@@ -178,7 +178,7 @@ export default function RegisterPage() {
             </h1>
             <p className="mt-4 max-w-prose text-base leading-relaxed text-tibc-chalk-dim sm:text-lg">
               Movement, community, and three straight days on the wall. Fill this
-              out to register (payment integration coming soon).
+              out to register, then complete payment via QR.
             </p>
 
             <form onSubmit={onSubmit} className="mt-8 space-y-6">

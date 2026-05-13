@@ -1,6 +1,6 @@
 # TIBC Boulder Jam microsite
 
-Modern, mobile-first event microsite (Next.js App Router + Tailwind + Framer Motion) with Razorpay checkout and Supabase-backed registrations.
+Modern, mobile-first event microsite (Next.js App Router + Tailwind + Framer Motion) with Supabase-backed registrations and a QR + WhatsApp manual payment flow.
 
 ## Routes
 
@@ -21,7 +21,6 @@ Run:
 
 Copy `.env.example` → `.env.local` and fill:
 
-- **Razorpay**: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET` (and optionally `NEXT_PUBLIC_RAZORPAY_KEY_ID`)
 - **Supabase**: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
 - **Admin**: `ADMIN_PASSWORD`
 
@@ -36,7 +35,7 @@ Open `http://localhost:3000`.
 
 ## Notes
 
-- **Payment flow**: client creates an order → Razorpay modal → server verifies signature → server inserts participant in Supabase → redirect to `/success`.
+- **Payment flow**: user registers → server inserts participant (`pending_manual_payment`) → user pays via QR → confirms via WhatsApp.
 - **Admin export**: filtered table can be exported as CSV.
 
 ## Registration save fails (“Failed to save registration”)

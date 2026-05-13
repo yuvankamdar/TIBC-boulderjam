@@ -19,8 +19,6 @@ type ParticipantRow = {
   emergency_contact_number: string;
   risk_acknowledged: boolean;
   payment_status: string;
-  razorpay_payment_id: string | null;
-  razorpay_order_id: string | null;
   amount_paise: number | null;
   currency: string | null;
 };
@@ -51,8 +49,6 @@ function toCsv(rows: ParticipantRow[]) {
     "emergency_contact_number",
     "risk_acknowledged",
     "payment_status",
-    "razorpay_payment_id",
-    "razorpay_order_id",
     "amount_paise",
     "currency",
   ];
@@ -135,7 +131,6 @@ export default function AdminPage() {
         r.email,
         r.instagram ?? "",
         r.payment_status,
-        r.razorpay_payment_id ?? "",
       ]
         .join(" ")
         .toLowerCase();

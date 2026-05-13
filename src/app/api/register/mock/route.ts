@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { randomUUID } from "crypto";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import type {
   ExperienceLevel,
@@ -57,9 +56,6 @@ export async function POST(req: Request) {
   const msg = validatePayload(p);
   if (msg) return badJson(msg, 400);
 
-  const mockPaymentId = `mock_pay_${randomUUID()}`;
-  const mockOrderId = `mock_order_${randomUUID()}`;
-
   try {
     const db = supabaseAdmin();
     const { error } = await db.from("participants").insert({
@@ -73,9 +69,7 @@ export async function POST(req: Request) {
       emergency_contact_name: p.emergencyName.trim(),
       emergency_contact_number: p.emergencyPhone.trim(),
       risk_acknowledged: p.riskAck,
-      payment_status: "pending",
-      razorpay_order_id: mockOrderId,
-      razorpay_payment_id: mockPaymentId,
+      payment_status: "pending_manual_payment",
       amount_paise: PRICE_PAISE,
       currency: "INR",
     });
@@ -95,8 +89,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       ok: true,
-      mockPaymentId,
-      mockOrderId,
     });
   } catch (e) {
     console.error("[register/mock] Unexpected:", e);
