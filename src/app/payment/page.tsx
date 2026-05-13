@@ -73,6 +73,16 @@ function PaymentContent() {
           </span>
         </a>
 
+        <p className="mt-3 text-center text-xs text-tibc-chalk-dim">
+          WhatsApp:{" "}
+          <a
+            href="tel:+917208758422"
+            className="underline underline-offset-2 hover:text-tibc-chalk"
+          >
+            +91 72087 58422
+          </a>
+        </p>
+
         {clicked ? (
           <div className="mt-4 text-xs leading-snug text-tibc-chalk-dim">
             Your registration has been saved. Payment confirmation will be
